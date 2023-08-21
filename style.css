@@ -1,0 +1,36 @@
+:root{
+    --ecriture: #f1f1f1;
+    --background: rgba(0, 0, 0, 0.76);
+
+
+}
+
+body{background-color: var(--background);
+color: var(--ecriture);}
+
+
+
+
+
+nav{
+    background-color: var(--background);
+position: sticky;
+
+}
+
+
+#logo{width: 150px;
+    position: relative;
+    left: 50%;
+}
+.navb{display: flex;
+margin:20px;
+padding: 30px;
+list-style: none;
+justify-content: space-around;}
+select{background-color: var(--background);
+color: var(--ecriture);
+border-style: none;
+text-decoration: underline;}
+
+.brwn:hover{color: tomato;}
