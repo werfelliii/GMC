@@ -13,10 +13,21 @@ element.addEventListener("click", function(event) {
     
 });
 
+//*fenetre modale*//
 
+const modalContainer = document.querySelector("#c1");
+console.log(modalContainer,"helo")
+const modalTriggers = document.querySelectorAll(".modal-trigger");
+console.log(modalContainer.style,"hello")
+function toggleModal(event) {
+  console.log("Toggle modal function executed.");
+  if (modalContainer.style.display == "") {
+    modalContainer.style.display = "flex";
+  } else {
+    modalContainer.style.display = "";
+  }
+}
 
-
-
-
-
-
+modalTriggers.forEach(trigger => {
+  trigger.addEventListener("click", toggleModal);
+});
