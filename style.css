@@ -1,6 +1,6 @@
 :root{
-    --ecriture: #f1f1f1;
-    --background: rgba(0, 0, 0, 0.76);
+    --ecriture: #03cdff;
+    --background: rgba(121, 10, 10, 0.76);
 
 
 }
@@ -13,7 +13,7 @@ color: var(--ecriture);}
 
 
 nav{
-    background-color: var(--background);
+    background-color:red;
 position: sticky;
 
 }
@@ -28,7 +28,7 @@ margin:20px;
 padding: 30px;
 list-style: none;
 justify-content: space-around;}
-select{background-color: var(--background);
+select{background-color:red;
 color: var(--ecriture);
 border-style: none;
 text-decoration: underline;}
