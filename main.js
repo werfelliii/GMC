@@ -1,4 +1,10 @@
 //*theme mode*//
+
+
+const counter = document.getElementById("count");
+var count = 0;
+var sum=0
+
 var element = document.getElementsByClassName("theme")[0];
 const root = document.documentElement;
 element.addEventListener("click", function(event) {
@@ -81,24 +87,6 @@ closeShopping.addEventListener('click', ()=>{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var articles = document.querySelectorAll(".game");
 var panier = document.getElementById("listCard");
 
@@ -109,6 +97,8 @@ var boutonPanier = article.querySelector(".bb");
     var prixArticle = parseFloat(article.querySelector("p").textContent.split(":")[1]);
 
     boutonPanier.addEventListener("click", function() {
+      count++;
+      counter.innerHTML=count.toString();
         var existingCartItem = panier.querySelector(`li[data-nom="${nomArticle}"]`);
 
         if (existingCartItem) {
@@ -121,31 +111,42 @@ var boutonPanier = article.querySelector(".bb");
             var li = document.createElement("li");
             li.setAttribute("data-nom", nomArticle);
             li.innerHTML = `
-                <span>${nomArticle} - ${prixArticle.toFixed(2)} €</span>
+            
+                <span class="prices">${nomArticle} - ${prixArticle.toFixed(2)} €</span>
+                
                 <button class="ajouter">+</button>
+                <center>
                 <span class="quantite">1</span>
+                </center>
                 <button class="retirer">-</button>
             `;
 
 
 var ajouterBouton = li.querySelector(".ajouter");
             ajouterBouton.addEventListener("click", function() {
+              count++;
+              counter.innerHTML=count.toString();
                 var quantite = parseInt(li.querySelector(".quantite").textContent);
                 li.querySelector(".quantite").textContent = quantite + 1;
+                somme();
             });
 
             var retirerBouton = li.querySelector(".retirer");
             retirerBouton.addEventListener("click", function() {
+              count--;
+              counter.innerHTML=count.toString();
                 var quantite = parseInt(li.querySelector(".quantite").textContent);
                 if (quantite > 1) {
                     li.querySelector(".quantite").textContent = quantite - 1;
                 } else {
                     panier.removeChild(li);
                 }
+                somme();
             });
 
             panier.appendChild(li);
         }
+        somme(); 
     });
 });
 
@@ -155,11 +156,22 @@ var ajouterBouton = li.querySelector(".ajouter");
 function somme(){
   let quantity=Array.from(document.getElementsByClassName("quantite"))
   let prices=Array.from(document.getElementsByClassName("prixArticle"))
-  let sum=0
-  for(let i =0;i<prices.length;i++){
-    sum += quantity[i].innerHTML*prices[i].innerHTML
-  }
-  return(document.getElementById("totalp").innerHTML="Shopping Bag total : $ " + sum)
+  sum=0;
+
+list_items=panier.getElementsByTagName("li");
+for (let i = 0; i < list_items.length; i++) {
+  const listItem = list_items[i];
+  const priceElement = listItem.getElementsByClassName("prices")[0];
+  console.log(priceElement.innerHTML);
+  price = priceElement.innerText.substring(priceElement.innerText.indexOf("-")+2, priceElement.innerText.length - 2)
+  price = parseFloat(price)
+  const quantity = parseFloat(listItem.getElementsByClassName("quantite")[0].innerText);
+  sum+=price*quantity
+  priceElement.textContent.split(":")
+  
+  // You can perform other operations on each list item here
+}
+document.getElementById("totalp").innerHTML=sum;
   
 }
 
