@@ -152,5 +152,15 @@ var ajouterBouton = li.querySelector(".ajouter");
 
 
 
+function somme(){
+  let quantity=Array.from(document.getElementsByClassName("quantite"))
+  let prices=Array.from(document.getElementsByClassName("prixArticle"))
+  let sum=0
+  for(let i =0;i<prices.length;i++){
+    sum += quantity[i].innerHTML*prices[i].innerHTML
+  }
+  return(document.getElementById("totalp").innerHTML="Shopping Bag total : $ " + sum)
+  
+}
 
 
