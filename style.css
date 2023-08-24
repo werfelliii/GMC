@@ -1,6 +1,6 @@
 :root{
-    --background: #262626;
-    --ecriture: #f5f5dc;
+    --background: #333;
+    --ecriture: #006400;
 
 
 }
@@ -37,7 +37,7 @@ color: var(--ecriture);}
 
 
 nav{
-    background-color:red;
+    background-color:#f5f5f5;
 position: sticky;
 
 }
@@ -51,7 +51,7 @@ margin:20px;
 padding: 30px;
 list-style: none;
 justify-content: space-around;}
-select{background-color:red;
+select{background-color:#f5f5f5;
 color: var(--ecriture);
 border-style: none;
 text-decoration: underline;}
@@ -118,7 +118,7 @@ height: 100vh;
 
 .game{
     padding: 50px;
-    background-color: brown;
+    background-color: #d8a8c0;
     border: #262626 1px solid;
 }
 

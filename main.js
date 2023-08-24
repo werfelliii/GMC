@@ -9,12 +9,12 @@ var element = document.getElementsByClassName("theme")[0];
 const root = document.documentElement;
 element.addEventListener("click", function(event) {
   if(element.innerHTML=="Light Mode"){
-    root.style.setProperty('--ecriture', '#262626');
-    root.style.setProperty('--background', '#f5f5dc');
+    root.style.setProperty('--ecriture', '#191970');
+    root.style.setProperty('--background', '#ffdab9');
     element.innerHTML="Dark mode"}
     else{
-        root.style.setProperty('--background', '#262626');
-        root.style.setProperty('--ecriture', '#f5f5dc');
+        root.style.setProperty('--background', '#333');
+        root.style.setProperty('--ecriture', '#006400');
         element.innerHTML="Light Mode";}
     
 });
