@@ -10,11 +10,11 @@ const root = document.documentElement;
 element.addEventListener("click", function(event) {
   if(element.innerHTML=="Light Mode"){
     root.style.setProperty('--ecriture', '#262626');
-    root.style.setProperty('--background', '#f1f1f1');
+    root.style.setProperty('--background', '#f5f5dc');
     element.innerHTML="Dark mode"}
     else{
         root.style.setProperty('--background', '#262626');
-        root.style.setProperty('--ecriture', '#f1f1f1');
+        root.style.setProperty('--ecriture', '#f5f5dc');
         element.innerHTML="Light Mode";}
     
 });
@@ -174,5 +174,27 @@ for (let i = 0; i < list_items.length; i++) {
 document.getElementById("totalp").innerHTML=sum;
   
 }
+
+
+
+const gameTypeSelect = document.getElementById('game-type');
+const shoppingBag = document.querySelector('.shopping-bag');
+
+const games = [
+  { name: 'Fifa', type: 'Sport' },
+  { name: 'Chess', type: 'Role-Play' },
+  { name: 'Minecraft', type: 'Adventure' },
+];
+
+gameTypeSelect.addEventListener('change', () => {
+  const selectedType = gameTypeSelect.value;
+  const matchingGames = games.filter(game => game.type === selectedType);
+
+  if (matchingGames.length > 0) {
+    const gameNames = matchingGames.map(game => game.name).join(', ');
+    alert(`The games where the type is "${selectedType}" are : ${gameNames}`);
+  } else {
+    alert('Any game for the moment.');}})
+  
 
 
